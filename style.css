@@ -1,0 +1,141 @@
+body,section,div,head {
+    padding: 0%;
+    margin: 0%;
+}
+a {
+    text-decoration: none;
+}
+
+ /* Pg Inicial  */
+
+#section_Pg_Inicial {
+    height: 100vh;
+    width: 98.7vw;
+    background-image: url(imagens/Fundo_Principal.png);
+    background-size: cover;
+    
+}
+#div_Navbar {
+    height: 15%;
+    width: 100%;
+    background-color: #2B2525;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-bottom: 2px solid #4B6BF1;
+}
+#img_luffy,#logo_One_Piece,.div_Texto_Nav{
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+}
+#img_luffy:hover,#logo_One_Piece:hover,.div_Texto_Nav:hover{
+    animation-name: bounce;
+    animation-timing-function: ease;
+}
+
+#img_luffy {
+    height: 150%;
+    transform: rotate(-15deg);
+    margin-top: 5%;
+    transition: 0.5s;
+}
+#img_luffy:hover {
+    height: 160%;
+    transform: rotate(0deg);
+    margin-top: 6%;
+    transition: 0.5s;
+}
+@keyframes bounce {
+    0%   { transform: rotate(-15deg); }
+    25%  { transform: rotate(0deg); }
+    50%  { transform: rotate(15deg); }
+    75%  { transform: rotate(0deg); }
+    100%  { transform: rotate(-15deg); }
+  }
+#logo_One_Piece {
+    height: 80%;
+    transition: 0.5s;
+}
+#logo_One_Piece:hover {
+    height: 85%;
+    transition: 0.5s;
+}
+#div_Nav_Links {
+    width: 50%;
+    
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.div_Texto_Nav {
+    font-size: 25px;
+
+    transition: 0.5s;
+
+    color: #4B6BF1;
+}
+.div_Texto_Nav:hover {
+    font-size: 28px;
+
+    transition: 0.5s;
+
+    color: #2951ee;
+}
+#div_Conteudo_Inicial{
+    height: 65%;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#div_Btn {
+    height: 19%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btn_Inicial {
+    height: 40%;
+    width: 10%;
+    font-size: 20px;
+    line-height: 12px;
+
+    background: #2B2525;
+    border: 2px solid #4B6BF1;
+    border-radius: 10px;
+    transition: 0.7s;
+    color: #4B6BF1;
+
+    font-style: normal;
+}
+.btn_Inicial:hover {
+    width: 15%;
+    font-size: 23px;
+
+    transition: 0.7s;
+
+    background: #C4C4C4;
+    border: 2px solid #4B6BF1;
+    border-radius: 10px;
+}
+#h1_Inicial {
+    color: white;
+}
+
+
+
+
+
+/* Pg Sobre  */
+
+
+#section_Sobre {
+    height: 100vh;
+    width: 98vw;
+}
