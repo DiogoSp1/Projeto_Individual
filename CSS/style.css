@@ -11,10 +11,17 @@ a {
 #section_Pg_Inicial {
     height: 100vh;
     width: 98.7vw;
-    background-image: url(../imagens/Fundo_Principal.png);
-    background-size: cover;
-    
 }
+
+#meu_Video{
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 #div_Navbar {
     height: 15%;
     width: 100%;
@@ -125,9 +132,7 @@ a {
     border-radius: 10px;
     cursor: pointer;
 }
-#h1_Inicial {
-    color: white;
-}
+
 
 
 
@@ -136,8 +141,8 @@ a {
 /* Pg Sobre  */
 
 
-#section_Sobre {
-    height: 150vh;
+#section_Mug {
+    height: 100vh;
     width: 98.7vw;
 
     background-image: url(https://p4.wallpaperbetter.com/wallpaper/176/809/299/one-piece-monkey-d-luffy-hokusai-waves-wallpaper-preview.jpg);
@@ -146,31 +151,87 @@ a {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    background-attachment: fixed, scroll;
+    background-repeat: no-repeat, repeat-y;
 }
 .container {
-    height: 90%;
+    height: 100%;
     width: 80%;
-    background-color: white;
-    border: 2px solid #000000;
     border-bottom: 0px;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.div_Lados{
-    height: 95%;
-    width: 48%;
+#fundo_Carousel{
+    height: 70%;
+    width: 90%;
 
     font-family: American Typewriter, serif;
     font-size: 22px;
+    background: #2B2525;
+    border: 2px solid #4B6BF1;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px 5px black;
 
-    padding: 2%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    overflow: hidden;
 }
-#div_Direita {
-    border-left: 1px solid black;
+.carousel {
+    height: 100%;
+    width: 70%;
+    display: flex;
+}
+#alinha_btn_carousel{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.escondida {
+    height: 100%;
+    width: 30%;
+    z-index: 1;
 }
 
-#img_Principal_Sobre {
-    width: 60%;
-    float: left;
-    margin-right: 2%;
-    margin-bottom: 2%;
+.escondida:hover {
+    -webkit-box-shadow: -5px 5px 5px #aaa;
+    -moz-box-shadow: -5px 5px 5px #aaa;
+    box-shadow: -5px 5px 5px #aaa;
+    width: 100%;
+    cursor: pointer;
+   }
+
+.img_Carousel {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#conteudo_Carousel {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #332c2c;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn_Carousel {
+    font-size: 50px;
+    color: #4B6BF1;
+    background: transparent;
+    border: none;
+}
+
+.btn_Carousel:hover {
+    font-size: 100px;
+    cursor: pointer;
 }

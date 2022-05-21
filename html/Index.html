@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,36 @@
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <script src="../JS/Navegacao.js"></script>
+<script src="../JS/Carousel.js"></script>
+
 <body>
     <section id="section_Pg_Inicial">
         <div id="div_Navbar">
-            <img src="https://static.wikia.nocookie.net/fiction-battlefield/images/6/6a/Macaco_luffy.png/revision/latest?cb=20190711015626&path-prefix=pt-br" alt="" id="img_luffy">
+            <img src="https://static.wikia.nocookie.net/fiction-battlefield/images/6/6a/Macaco_luffy.png/revision/latest?cb=20190711015626&path-prefix=pt-br"
+                alt="" id="img_luffy">
             <img src="../imagens/logo_One_Piece.png" alt="" id="logo_One_Piece">
             <div id="div_Nav_Links">
-                <a href="#section_Sobre"><div class="div_Texto_Nav" id="div_Nav_Sobre">Sobre</div></a>
-                <a href="#pg_Inicial"><div class="div_Texto_Nav" id="div_Nav_Anime">Anime</div></a>
-                <a href="#pg_Inicial"><div class="div_Texto_Nav" id="div_Nav_Manga">Mangá</div></a>
-                <a href="#pg_Inicial"><div class="div_Texto_Nav" id="div_Nav_Info">Mugiwaras</div></a>
+                <a href="#section_Mug">
+                    <div class="div_Texto_Nav" id="div_Nav_Info">Mugiwaras</div>
+                </a>
+                <a href="#pg_Inicial">
+                    <div class="div_Texto_Nav" id="div_Nav_Sobre">Sobre</div>
+                </a>
+                <a href="#pg_Inicial">
+                    <div class="div_Texto_Nav" id="div_Nav_Anime">Anime</div>
+                </a>
+                <a href="#pg_Inicial">
+                    <div class="div_Texto_Nav" id="div_Nav_Manga">Mangá</div>
+                </a>
             </div>
         </div>
         <div id="div_Conteudo_Inicial">
-            <h1 id="h1_Inicial">Pronto para a aventura?</h1>
+            <video autoplay muted loop id="meu_Video">
+                <source src="../imagens/Luffy Destrói Kaido !  - One Piece Episodio 1017 ( PT-BR ) ________ 4k.mp4" type="video/mp4">
+              </video>
+            <!-- <div id="fundo_Conteudo">
+                <h1 id="h1_Inicial">Eu sou o homem que vai se tornar o rei dos piratas!</h1>
+            </div> -->
         </div>
         <div id="div_Btn">
             <button class="btn_Inicial" onclick="ir_Logar()">Logar</button>
@@ -29,20 +46,59 @@
         </div>
     </section>
 
-    <section id="section_Sobre">
+    <section id="section_Mug">
         <div class="container">
-            <div class="div_Lados" id="div_Esquerda">
-                <img src="https://t.ctcdn.com.br/yTDqtM942nFErcZoncymJqMCac4=/1400x788/smart/filters:format(webp)/i527855.jpeg" alt="" id="img_Principal_Sobre" >
-                One Piece mangá escrita e ilustrada por Eiichiro Oda. Os capítulos têm sido serializados na revista Weekly Shōnen Jump desde 22 de julho de 1997, com os capítulos compilados e publicados em 100 volumes tankōbon pela editora Shueisha até setembro de 2021. One Piece conta as aventuras de Monkey D. Luffy, um jovem cujo corpo ganhou as propriedades de borracha após ter comido uma fruta do diabo acidentalmente. Com sua tripulação, os Piratas do Chapéu de Palha, Luffy explora a Grand Line em busca do tesouro mais procurado do mundo, o "One Piece", a fim de se tornar o próximo Rei dos Piratas.
-                <br><br>
-                O mangá foi adaptado em um episódio OVA produzido pela Production I.G em 1998, e num anime produzido pela Toei Animation, transmitido no Japão desde 1999. Além disso, a Toei Animation produziu catorze filmes de anime, um OVA e treze episódios especiais de televisão. Foram lançadas também vários tipos de mídias desenvolvidas por diversas empresas relacionadas à série, como um jogo de cartas colecionável, e vários jogos eletrônicos. A série de mangá é licenciada e publicada no Brasil pela editora Panini Comics. A série de anime já foi exibida no Brasil, e em Portugal. 
-            </div>
-            <div class="div_Lados" id="div_Direita">
-                Atualmente a série é transmitida simultaneamente pela Crunchyroll no Brasil e será transmitida pelo Netflix com uma nova dublagem.
-                <br><br>
-                One Piece recebeu elogios pelo seu enredo, arte, humor e caracterização. Vários volumes do mangá quebraram recordes de publicação, incluindo a maior tiragem inicial de qualquer livro no Japão. O sítio oficial da série anunciou que o mangá estabeleceu um recorde mundial como "a série de quadrinhos de um mesmo autor com mais cópias publicadas no mundo". Até maio de 2020, o mangá já tinha vendido mais de 473 milhões de cópias em todo o mundo, sendo a série de mangá mais vendida da história, além de ser a segunda série de livros (se contarmos mangás na lista) mais vendida de todos os tempos, só perdendo para a série de livros britânica Harry Potter. Foi a série de mangá mais vendida pelo décimo primeiro ano consecutivo em 2018. One Piece é uma das franquias de mídia com maior bilheteria de todos os tempos, estima-se que tenha gerado mais de 21 bilhões de dólares em receita total de franquia, a partir de mangás, animes e filmes, jogos e mercadorias.
+            <div id="fundo_Carousel">
+                <div id="alinha_btn_carousel">
+                    <button class="btn_Carousel" onclick="passar_Img('esquerda')"><</button>
+                    <div class="carousel">
+                        <div class="escondida" id="personagem1" onclick="selecionar_Img(1)">
+                            <img src="https://cdn.awsli.com.br/1000x1000/1206/1206083/produto/135775753/c625e833c4.jpg"
+                                alt="Luffy" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem2" onclick="selecionar_Img(2)">
+                            <img src="https://cdn.awsli.com.br/1000x1000/1206/1206083/produto/135776163/9c86a8439b.jpg"
+                                alt="Roronoa Zoro" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem3" onclick="selecionar_Img(3)">
+                            <img src="https://cdn.awsli.com.br/600x450/1206/1206083/produto/135781945/dc7e8b24f3.jpg"
+                                alt="Sanji" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem4" onclick="selecionar_Img(4)">
+                            <img src="https://cdn.shopify.com/s/files/1/0573/7522/8070/products/OP-426-Chopper2.jpg?v=1622779766"
+                                alt="Chopper" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem5" onclick="selecionar_Img(5)">
+                            <img src="https://cdn.awsli.com.br/1000x1000/1206/1206083/produto/135782292/edc05fb549.jpg"
+                                alt="Usopp" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem6" onclick="selecionar_Img(6)">
+                            <img src="https://cdn.shopify.com/s/files/1/0573/7522/8070/products/OP-423-namiFrontface.jpg?v=1622780749"
+                                alt="Nami" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem7" onclick="selecionar_Img(7)">
+                            <img src="https://i.pinimg.com/originals/e6/7b/4f/e67b4f4ca94fb36d9a893c6d21676695.jpg"
+                                alt="Nico Robin" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem8" onclick="selecionar_Img(8)">
+                            <img src="https://cdn.awsli.com.br/600x450/1206/1206083/produto/135782916/96f0df03f6.jpg"
+                                alt="Brook" class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem9" onclick="selecionar_Img(9)">
+                            <img src="https://i.pinimg.com/736x/22/eb/32/22eb32a9e6f50a129aa77958fa0c5602.jpg" alt="Franky"
+                                class="img_Carousel">
+                        </div>
+                        <div class="escondida" id="personagem10" onclick="selecionar_Img(10)">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_889078-MLB44655783986_012021-O.jpg" alt="Jinbei"
+                                class="img_Carousel">
+                        </div>
+                    </div>
+                    <button class="btn_Carousel" onclick="passar_Img('direita')">></button>
+                </div>
+                <div id="conteudo_Carousel"><h1>Mugiwaras</h1></div>
             </div>
         </div>
     </section>
 </body>
+
 </html>
