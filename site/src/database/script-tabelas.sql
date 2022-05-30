@@ -2,43 +2,35 @@
 -- Você precisa executar os comandos no banco de dados para criar as tabelas,
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE acquatec;
-
-USE acquatec;
+CREATE DATABASE projeto_Individual;
+USE projeto_Individual;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
+	id_Usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome_Usuario VARCHAR (50) NOT NULL,
+    data_Nasc DATE NOT NULL,
+    cpf VARCHAR (14) NOT NULL,
+    senha VARCHAR (20)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE mural (
+	id_Mural INT PRIMARY KEY AUTO_INCREMENT,
+    fk_Usuario INT NOT NULL,
+    nome_mural VARCHAR (50) NOT NULL,
+    descricao VARCHAR (1000) NOT NULL,
+    FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
+CREATE TABLE mugiwara (
+	id_Mug INT PRIMARY KEY AUTO_INCREMENT,
+	nome_Mug VARCHAR (20) NOT NULL
 );
 
-/* altere esta tabela de acordo com o que está em INSERT de sua API do arduino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE mugiwara_Favorito (
+    fk_Usuario INT NOT NULL PRIMARY KEY,
+    fk_Mug INT NOT NULL,
+    FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario),
+    FOREIGN KEY (fk_Mug) REFERENCES mugiwara(id_Mug)
 );
 
 

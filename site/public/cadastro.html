@@ -23,6 +23,7 @@
         rel="stylesheet">
 </head>
 <script src="js/Navegacao.js"></script>
+<script src="js/validacoes.js"></script>
 <body>
 
     <!--header inicio-->
@@ -165,17 +166,27 @@
 </html>
 
 <script>
+    var nomeVar = ""
+    var emailVar = ""
+    var cpfVar = ""
+    var mugiwara_Favorito = "";
+    var descricao = ""
+    var senhaVar = ""
+
     function cadastrar() {
         aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        nomeVar = input_Nome.value;
+        emailVar = input_Data_Nasc.value;
+        cpfVar = input_Cpf.value;
+        mugiwara_Favorito = mug_Fav.value;
+        descricao = desc.value
+        senhaVar = input_Senha.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+        if (nomeVar == "" || emailVar == "" || cpfVar == "" || mugiwara_Favorito == "" || descricao == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -183,6 +194,7 @@
             return false;
         }
         else {
+            validacao_Cadastro()
             setInterval(sumirMensagem, 5000)
         }
 
