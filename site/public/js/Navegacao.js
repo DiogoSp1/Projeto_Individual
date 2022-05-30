@@ -3,7 +3,7 @@ function ir_Cadastro() {
 }
 
 function ir_Logar() {
-    window.location.assign("logar.html")
+    window.location.assign("login.html")
 }
 
 function ir_Pg_Inicial() {

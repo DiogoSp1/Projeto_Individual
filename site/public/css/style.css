@@ -1,0 +1,237 @@
+body,section,div,head {
+  padding: 0%;
+  margin: 0%;
+}
+a {
+  text-decoration: none;
+}
+
+/* Pg Inicial  */
+
+#section_Pg_Inicial {
+  height: 100vh;
+  width: 98.7vw;
+}
+
+#meu_Video{
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#div_Navbar {
+  height: 15%;
+  width: 100%;
+  background-color: #2B2525;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-bottom: 2px solid #4B6BF1;
+}
+#img_luffy,#logo_One_Piece,.div_Texto_Nav, #img_luffy_Desc{
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+#img_luffy:hover,#logo_One_Piece:hover,.div_Texto_Nav:hover, #img_luffy_Desc:hover{
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+
+#img_luffy {
+  height: 150%;
+  transform: rotate(-15deg);
+  margin-top: 5%;
+  transition: 0.5s;
+}
+#img_luffy:hover {
+  height: 160%;
+  transform: rotate(0deg);
+  margin-top: 6%;
+  transition: 0.5s;
+}
+@keyframes bounce {
+  0%   { transform: rotate(-15deg); }
+  25%  { transform: rotate(0deg); }
+  50%  { transform: rotate(15deg); }
+  75%  { transform: rotate(0deg); }
+  100%  { transform: rotate(-15deg); }
+}
+#logo_One_Piece {
+  height: 80%;
+  transition: 0.5s;
+}
+#logo_One_Piece:hover {
+  height: 85%;
+  transition: 0.5s;
+}
+#div_Nav_Links {
+  width: 50%;
+  
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.div_Texto_Nav {
+  font-size: 25px;
+
+  transition: 0.5s;
+
+  color: #4B6BF1;
+}
+.div_Texto_Nav:hover {
+  font-size: 28px;
+
+  transition: 0.5s;
+
+  color: #2951ee;
+}
+#div_Conteudo_Inicial{
+  height: 65%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#div_Btn {
+  height: 19%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btn_Inicial {
+  height: 40%;
+  width: 10%;
+  font-size: 20px;
+  line-height: 12px;
+
+  background: #2B2525;
+  border: 2px solid #4B6BF1;
+  border-radius: 10px;
+  transition: 0.7s;
+  color: #4B6BF1;
+
+  font-style: normal;
+}
+.btn_Inicial:hover {
+  width: 15%;
+  font-size: 23px;
+
+  transition: 0.7s;
+
+  background: #C4C4C4;
+  border: 2px solid #4B6BF1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Pg Sobre  */
+
+
+#section_Mug {
+  height: 100vh;
+  width: 98.7vw;
+
+  background-image: url(https://p4.wallpaperbetter.com/wallpaper/176/809/299/one-piece-monkey-d-luffy-hokusai-waves-wallpaper-preview.jpg);
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  background-attachment: fixed, scroll;
+  background-repeat: no-repeat, repeat-y;
+}
+.container {
+  height: 100%;
+  width: 80%;
+  border-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#fundo_Carousel{
+  height: 70%;
+  width: 90%;
+
+  font-family: American Typewriter, serif;
+  font-size: 22px;
+  background: #2B2525;
+  border: 2px solid #4B6BF1;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px 5px black;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+.carousel {
+  height: 100%;
+  width: 70%;
+  display: flex;
+}
+#alinha_btn_carousel{
+  height: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.escondida {
+  height: 100%;
+  width: 30%;
+  z-index: 1;
+}
+
+.escondida:hover {
+  -webkit-box-shadow: -5px 5px 5px #aaa;
+  -moz-box-shadow: -5px 5px 5px #aaa;
+  box-shadow: -5px 5px 5px #aaa;
+  width: 100%;
+  cursor: pointer;
+ }
+
+.img_Carousel {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#conteudo_Carousel {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #332c2c;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn_Carousel {
+  font-size: 50px;
+  color: #4B6BF1;
+  background: transparent;
+  border: none;
+}
+
+.btn_Carousel:hover {
+  font-size: 100px;
+  cursor: pointer;
+}
