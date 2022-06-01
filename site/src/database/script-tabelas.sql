@@ -10,14 +10,15 @@ CREATE TABLE usuario (
     nome_Usuario VARCHAR (50) NOT NULL,
     data_Nasc DATE NOT NULL,
     cpf VARCHAR (14) NOT NULL,
-    senha VARCHAR (20)
+    senha VARCHAR (20),
+    descricao VARCHAR (1000) NOT NULL
 );
 
 CREATE TABLE mural (
 	id_Mural INT PRIMARY KEY AUTO_INCREMENT,
     fk_Usuario INT NOT NULL,
     nome_mural VARCHAR (50) NOT NULL,
-    descricao VARCHAR (1000) NOT NULL,
+    conteudo VARCHAR (1000) NOT NULL,
     FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario)
 );
 
@@ -26,12 +27,25 @@ CREATE TABLE mugiwara (
 	nome_Mug VARCHAR (20) NOT NULL
 );
 
+INSERT INTO mugiwara (nome_Mug) VALUES
+('Luffy'),
+('Roronoa Zoro'),
+('Sanji'),
+('Chopper'),
+('Nami'),
+('Nico Robin'),
+('Usopp'),
+('Franky'),
+('Brook'),
+('Jinbei');
+
 CREATE TABLE mugiwara_Favorito (
-    fk_Usuario INT NOT NULL PRIMARY KEY,
+    fk_Usuario INT UNIQUE NOT NULL,
     fk_Mug INT NOT NULL,
     FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario),
     FOREIGN KEY (fk_Mug) REFERENCES mugiwara(id_Mug)
 );
+
 
 
 /* para sql server - remoto - produção */
