@@ -1,18 +1,8 @@
 var pers = 0
 function selecionar_Img(cartao){ 
-    for (var imgX = 1; 10 >= imgX; imgX++){
-        if (cartao == imgX){
-            document.getElementById('personagem' + cartao).style.width = '100%';
-            document.getElementById('personagem' + cartao).style.border = '3px solid black';
-            document.getElementById('personagem' + cartao).style.boxShadow = '10px 10px 16px #000';
-            document.getElementById('personagem' + cartao).style.zIndex = '2'
-        } else {
-            document.getElementById('personagem' + imgX).style.width = '30%';
-            document.getElementById('personagem' + imgX).style.border = '0px solid black';
-            document.getElementById('personagem' + imgX).style.boxShadow = 'none';
-            document.getElementById('personagem' + imgX).style.zIndex = '1'
-        }
-    }
+
+    arrumar_Estilo(cartao)
+    
 var texto = ''
     if (cartao == 1){
         pers = 1
@@ -79,10 +69,26 @@ var texto = ''
 
 }
 
+function arrumar_Estilo(cartao){
+    for (var imgX = 1; 10 >= imgX; imgX++){
+        if (cartao == imgX){
+            document.getElementById('personagem' + cartao).style.width = '100%';
+            document.getElementById('personagem' + cartao).style.border = '3px solid black';
+            document.getElementById('personagem' + cartao).style.boxShadow = '10px 10px 16px #000';
+            document.getElementById('personagem' + cartao).style.zIndex = '2'
+        } else {
+            document.getElementById('personagem' + imgX).style.width = '30%';
+            document.getElementById('personagem' + imgX).style.border = '0px solid black';
+            document.getElementById('personagem' + imgX).style.boxShadow = 'none';
+            document.getElementById('personagem' + imgX).style.zIndex = '1'
+        }
+    }
+}
+
 
 function passar_Img(lado){
     if(lado == 'esquerda'){
-        if(pers == 0){
+        if(pers <= 1){
             pers = 10
         } else {
             pers--

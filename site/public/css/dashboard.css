@@ -1,0 +1,67 @@
+body, div, a, section {
+    padding: 0;
+    margin: 0;
+}
+
+#section_Dash {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('https://s.aficionados.com.br/imagens/monkey-d-luffy_cke.jpg');
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+}
+
+#menu {
+    width: 25%;
+    height: 98%;
+    margin-left: 0.5%;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.288);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px 5px black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#div_Fechar_Menu {
+    height: 60px;
+    width: 60px;
+
+    background-image: url('https://cdn.icon-icons.com/icons2/916/PNG/512/Menu_icon_icon-icons.com_71858.png');
+    background-size: cover;
+}
+
+#div_Buttons {
+    height: 80%;
+    width: 100%;
+}
+
+.div_Alinha_Button {
+    height: 15%;
+    width: 100%;
+    font-size: 30px;
+
+    margin-top: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.div_Button {
+    height: 50%;
+    width: 80%;
+
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 2px black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
