@@ -119,7 +119,7 @@ label{
     height: 30%;
 }
 
-#mug_Fav, #desc {
+#mug_Fav, #img_Perfil {
     background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid black;
 }
@@ -133,7 +133,7 @@ label{
     flex-direction: column;
 }
 
-#desc {
+#img_Perfil {
     width: 80%;
     height: 100%;
 }

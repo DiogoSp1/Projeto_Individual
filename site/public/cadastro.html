@@ -117,13 +117,13 @@
                     <label for="nome">Nome: </label>
                     <input type="text" id="input_Nome">
                 </div>
-                <div class="alinhamento_Lados" id="alinhar_Data">
-                    <label for="data">Data de Nascimento: </label>
-                    <input type="date" id="input_Data_Nasc">
+                <div class="alinhamento_Lados">
+                    <label for="data">Email: </label>
+                    <input type="text" id="input_Email">
                 </div>
                 <div class="alinhamento_Lados">
-                    <label for="data">CPF: </label>
-                    <input type="text" id="input_Cpf">
+                    <label for="data">Usuário: </label>
+                    <input type="text" id="input_Usuario">
                 </div>
             </div>
             <div id="direita_Cad" class="lados_Cad">
@@ -143,8 +143,8 @@
                     </select>
                 </div>
                 <div id="desc_centralizar">
-                    <label for="descricao">Sua Descrição:(opcional) </label>
-                    <textarea id="desc"></textarea>
+                    <label for="descricao">URL para foto de perfil:(opcional)</label>
+                    <textarea id="img_Perfil"></textarea>
                 </div>
                 <div id="senha" class="alinhamento_Lados">
                     <label for="data">Senha: </label>
@@ -167,9 +167,9 @@
 <script>
     var nomeVar = ""
     var emailVar = ""
-    var cpfVar = ""
+    var usuarioVar = ""
     var mugiwara_Favorito = "";
-    var descricao = ""
+    var imagemPerfil = ""
     var senhaVar = ""
 
     function cadastrar() {
@@ -177,29 +177,33 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         nomeVar = input_Nome.value;
-        dataNascVar = input_Data_Nasc.value;
-        cpfVar = input_Cpf.value;
+        emailVar = input_Email.value;
+        usuarioVar = input_Usuario.value;
         mugiwaraFavoritoVar = mug_Fav.value;
-        descricaoVar = desc.value;
+        imagemPerfil = img_Perfil.value;
         senhaVar = input_Senha.value;
 
-        console.log(nomeVar, dataNascVar, cpfVar, mugiwaraFavoritoVar, descricaoVar, senhaVar)
+        console.log(nomeVar, usuarioVar, emailVar, mugiwaraFavoritoVar, imagemPerfil, senhaVar)
 
 
-        if (nomeVar == "" || dataNascVar == "" || cpfVar == "" || mugiwaraFavoritoVar == "" || senhaVar == "") {
+        if (nomeVar == "" || usuarioVar == "" || emailVar == "" || mugiwaraFavoritoVar == "" || senhaVar == "") {
             alert("Deu b.o")
             return false;
         }
-        if(cpfVar.length != 11){
-            alert(`CPF incorreto`)
+        if(!emailVar.indexOf('@')){
+            alert(`email incorreto`)
             return false;
         }
         if(senhaVar.length <= 6){
             alert(`A senha deve ser maior que 6 caracteres`)
             return false;
         }
-        if(dataNascVar.length != 10){
-            alert(`A data de nascimento deve está incorreta`)
+        if(usuarioVar.length < 5 || usuarioVar.length > 15){
+            alert(`O nome de usuário deve ter um taamanho entre 5 e 15 caractéres`)
+            return false;
+        }
+        if(imagemPerfil.length > 5000){
+            alert(`Url muito grande, máximo de 5000 caractéres`)
             return false;
         }
         
@@ -214,11 +218,11 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                dataNascServer: dataNascVar,
+                usuarioServer: usuarioVar,
                 senhaServer: senhaVar,
-                cpfServer: cpfVar,
+                emailServer: emailVar,
                 mugFavServer: mugiwaraFavoritoVar,
-                descricaoServer: descricaoVar
+                imagemPerfilServer: imagemPerfil
             })
         }).then(function (resposta) {
 

@@ -9,26 +9,75 @@
 
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
-<script src="js/menu.js"></script>
-<body>
+<script src="js/dash.js"></script>
+<script src="js/batalha.js"></script>
+<body onload="ajustar_Perfil()">
 
     <section id="section_Dash">
         <div id="menu">
-            <a onclick="fechar_Menu()" id="div_Fechar_Menu"></a>
-
             <div id="div_Buttons">
-                <div class="div_Alinha_Button" id="div_Perfil">
-                    <div class="div_Button">Perfil</div>
+                <div class="tamanho_Img">
+                    <a href="" class="a_Tamanho"><img src="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-Clip-Art-Transparent-File.png" alt="" class="img_Menu"></img></a>
                 </div>
-                <div class="div_Alinha_Button" id="div_Rank_Pref">
-                    <div class="div_Button">Rank de Preferidos</div>
+                <div class="tamanho_Img">
+                    <a href="" class="a_Tamanho"><img src="https://cdn-icons-png.flaticon.com/512/1041/1041158.png" alt="" class="img_Menu"></a>
                 </div>
-                <div class="div_Alinha_Button" id="div_Rank_Poder">
-                    <div class="div_Button">Rank de Poder</div>
+                <div class="tamanho_Img">
+                    <a onclick="escolher_Contra()" class="a_Tamanho"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Small_battle_symbol.svg/1200px-Small_battle_symbol.svg.png" alt="" class="img_Menu"></a>
                 </div>
-                <div class="div_Alinha_Button" id="div_Sair">
-                    <div class="div_Button">Sair</div>
+                <div class="tamanho_Img">
+                    <a href="login.html" class="a_Tamanho"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="" class="img_Menu"></a>
                 </div>
+            </div>
+        </div>
+
+        <div id="div_Perfil">
+            <div id="div_Quadro_Batalha">
+                <div id="div_Conteudo_Batalhar"></div>
+                <button class="btn"id="btn_Jogar" onclick="escolher_Contra()">Jogar</button>
+            </div>
+            <div id="div_Quadro_Perfil">
+                <div id="img_De_Perfil"></div>
+                <div id="nome_Perfil" class="conteudo_Perfil">Dhg.up</div>
+                <div id="valor_Perfil" class="conteudo_Perfil">US$5.500.000</div>
+            </div>
+        </div>
+
+        <div id="antes_Batalha">
+            <div id="div_Quadro_Batalha">
+                <div id="personagem1"></div>
+                <div id="div_Contra"><img src="https://monophy.com/media/iHsWB2Um1tG33pzbXg/monophy.gif" alt="" id="gif_Contra"></div>
+                <div id="personagem2"></div>
+            </div>
+            <div id="div_Buttons_Batalha">
+                <button class="btn" id="btn_Batalhar" onclick="voltar_Perfil()">Cancelar</button>
+                <a onclick="escolher_Contra()" id="btn_Atualizar_Personagem"><img src="https://cdn-icons-png.flaticon.com/512/1/1282.png" alt="" id="btn_Atualizar_Personagem"></a>
+                <button onclick="lutar()" class="btn" id="btn_Batalhar">Batalhar</button>
+            </div>
+        </div>
+
+        <div id="div_Batalha">
+            <div id="barras_Vida">
+                <div id="div_Vida1">
+                    <div id="div_Icone_Personagem"></div>
+                    <div class="div_Barra_Vida1" ></div>
+                </div>
+                <div id="div_VS">
+                    <img src="https://media2.giphy.com/media/IeiONINKriNrbSygju/200w.gif" alt="" id="gif_VS">
+                </div>
+                <div id="div_Vida2">
+                    <div class="div_Barra_Vida2"></div>
+                    <div id="div_Icone_Personagem2"></div>
+                </div>
+            </div>
+
+            <div id="div_Personagens">
+                <div id="div_Personagem1"></div>
+                <div id="div_Personagem2"></div>
+            </div>
+
+            <div id="div_Bater">
+                <button onclick="bater()" class="btn" id="btn_Bater">Bater</button>
             </div>
         </div>
     </section>

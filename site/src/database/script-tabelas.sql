@@ -5,13 +5,20 @@
 CREATE DATABASE projeto_Individual;
 USE projeto_Individual;
 
+CREATE TABLE mugiwara (
+	id_Mug INT PRIMARY KEY AUTO_INCREMENT,
+	nome_Mug VARCHAR (20) NOT NULL
+);
+
 CREATE TABLE usuario (
 	id_Usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome_Usuario VARCHAR (50) NOT NULL,
-    data_Nasc DATE NOT NULL,
-    cpf VARCHAR (14) NOT NULL,
+    apelido VARCHAR (16) NOT NULL,
+    email VARCHAR (70) NOT NULL,
     senha VARCHAR (20),
-    descricao VARCHAR (1000) NOT NULL
+    fk_Mug INT NOT NULL,
+    FOREIGN KEY (fk_Mug) REFERENCES mugiwara(id_Mug),
+    url_Img VARCHAR(5000)
 );
 
 CREATE TABLE mural (
@@ -20,11 +27,6 @@ CREATE TABLE mural (
     nome_mural VARCHAR (50) NOT NULL,
     conteudo VARCHAR (1000) NOT NULL,
     FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario)
-);
-
-CREATE TABLE mugiwara (
-	id_Mug INT PRIMARY KEY AUTO_INCREMENT,
-	nome_Mug VARCHAR (20) NOT NULL
 );
 
 INSERT INTO mugiwara (nome_Mug) VALUES
@@ -39,8 +41,11 @@ INSERT INTO mugiwara (nome_Mug) VALUES
 ('Brook'),
 ('Jinbei');
 
-CREATE TABLE mugiwara_Favorito (
-    fk_Usuario INT UNIQUE NOT NULL,
+CREATE TABLE batalha (
+    id_Batalha INT PRIMARY KEY AUTO_INCREMENT,
+    fk_Usuario INT NOT NULL,
+    resultado VARCHAR(6),
+    CHECK(resultado = 'Venceu' AND resultado = 'Perdeu'),
     fk_Mug INT NOT NULL,
     FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario),
     FOREIGN KEY (fk_Mug) REFERENCES mugiwara(id_Mug)

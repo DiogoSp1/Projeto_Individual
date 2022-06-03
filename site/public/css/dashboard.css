@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'one piece';
+    src: url('../imagens/fontOnePiece.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, div, a, section {
     padding: 0;
     margin: 0;
@@ -6,62 +13,362 @@ body, div, a, section {
 #section_Dash {
     height: 100vh;
     width: 100vw;
-    background-image: url('https://s.aficionados.com.br/imagens/monkey-d-luffy_cke.jpg');
+    background-image: url('https://a-static.besthdwallpaper.com/one-piece-ace-sabo-e-luffy-papel-de-parede-1680x1050-8508_5.jpg');
     background-size: cover;
 
     display: flex;
     align-items: center;
 }
 
+
 #menu {
-    width: 25%;
+    width: 5%;
     height: 98%;
     margin-left: 0.5%;
-
+    
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.288);
     border-radius: 8px;
     box-shadow: 0 8px 20px 5px black;
-
+    
     display: flex;
     flex-direction: column;
 }
 
-#div_Fechar_Menu {
-    height: 60px;
-    width: 60px;
-
-    background-image: url('https://cdn.icon-icons.com/icons2/916/PNG/512/Menu_icon_icon-icons.com_71858.png');
-    background-size: cover;
-}
 
 #div_Buttons {
-    height: 80%;
+    height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.div_Alinha_Button {
+.tamanho_Img {
     height: 15%;
     width: 100%;
-    font-size: 30px;
-
-    margin-top: 10%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.a_Tamanho {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_Menu {
+    height: 60%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Perfil */
+
+#div_Perfil, #div_Batalha, #antes_Batalha {
+    width: 95%;
+    height: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#div_Quadro_Perfil {
+    height: 80%;
+    width: 28%;
+    
+    background-image: url('https://1.bp.blogspot.com/-n6-bv-tLz4s/X1gTRoHPMlI/AAAAAAAAAzc/CBB6VfYIKhIR-tiqbgK20Gxm-xDxB5CegCLcBGAsYHQ/s2048/One%2BPiece%2BWanted.png');
+    background-size: cover;
+
+    box-shadow: 0px 4px 20px 9px black;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#img_De_Perfil {
+    height: 45%;
+    width: 85%;
+
+    border-radius: 4px;
+    background-color: white;
+    margin-top: 26.5%;
+    margin-bottom: 10%;
+}
+
+.conteudo_Perfil {
+    height: 10%;
+    width: 65%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'one piece', sans-serif;
+    font-size: 30px;
+}
+
+#div_Quadro_Batalha {
+    height: 80%;
+    width: 28%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+}
+
+.btn {
+    font-size: 20px;
+    line-height: 12px;
+  
+    background: #2b2525e7;
+    border: 2px solid #4B6BF1;
+    border-radius: 10px;
+    transition: 0.7s;
+    color: #4B6BF1;
+}
+
+#div_Buttons_Batalha {
+    height: 6%;
+    width: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#btn_Jogar {
+    height: 6%;
+    width: 25%;
+}
+
+#btn_Jogar:hover {
+    width: 30%;
+    cursor: pointer;
+}
+
+#div_Batalha, #antes_Batalha {
+    display: none;
+}
+
+#btn_Atualizar_Personagem {
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+/* Antes da batalha */
+#antes_Batalha {
+    flex-direction: column;
+}
+
+#div_Quadro_Batalha, #personagem1, #personagem2, #div_Contra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#div_Quadro_Batalha{
+    height: 70%;
+    width: 60%;
+    
+    justify-content: space-between;
+    flex-direction: row;
     
 }
 
-.div_Button {
-    height: 50%;
-    width: 80%;
+#personagem1, #personagem2 {
+    height: 100%;
+    width: 45%;
+    background-image: url('data:image/jpeg;base64,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');
+    background-size: cover;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 4px 16px 6px black;
+    border-radius: 8px;
+}
 
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px 2px black;
+#div_Contra {
+    height: 100%;
+    width: 10%;
+}
+
+#gif_Contra {
+    width: 100%;
+}
+
+#btn_Batalhar {
+    height: 100%;
+    width: 11%;
+}
+
+#btn_Batalhar:hover {
+    width: 14%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Batalha */
+
+#div_Batalha {
+    flex-direction: column;
+}
+
+
+#div_Vida1, #div_Vida2, #div_VS, #barras_Vida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#barras_Vida {
+    height: 15%;
+    width: 100%;
+}
+
+#div_Vida1, #div_Vida2 {
+    height: 100%;
+    width: 45%;
+}
+
+#div_VS {
+    height: 100%;
+    width: 10%;
+}
+
+#div_Vida1 {
+    justify-content: flex-end;
+}
+
+#div_Vida2 {
+    justify-content: flex-start;
+}
+
+.div_Barra_Vida1, .div_Barra_Vida2 {
+    height: 50%;
+    width: 70%;
+    padding: 5px;
+    border-radius: 19px;
+    background-color: rgba(204, 204, 204, 0.342);
+    display: flex;
+}
+
+#div_Icone_Personagem, #div_Icone_Personagem2 {
+    height: 100%;
+    width: 28%;
+}
+
+.div_Barra_Vida1{
+    --progress: 100;
+}
+
+.div_Barra_Vida2{
+    --progress2: 100;
+}
+
+.div_Barra_Vida1::before{
+    content: "";
+    width: calc(var(--progress) * 1%);
+    background-color: hsl( calc(var(--progress) * 1.2) , 80%, 50%);
+    transition: all 0.2s ease;
+    border-radius: 19px;
+}
+
+.div_Barra_Vida2::before{
+    content: "";
+    width: calc(var(--progress2) * 1%);
+    background-color: hsl( calc(var(--progress2) * 1.2) , 80%, 50%);
+    transition: all 0.2s ease;
+    border-radius: 19px;
+}
+
+#gif_VS {
+    height: 100%;
+    margin-top: 7%;
+}
+
+#btn_Bater {
+    height: 30%;
+    width: 10%;
+}
+
+#btn_Bater:hover {
+    width: 13%;
+}
+
+#div_Personagens {
+    height: 65%;
+    width: 100%;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    background-size: cover;
+}
+
+#div_Personagem1, #div_Personagem2 {
+    height: 100%;
+    width: 45%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#div_Bater {
+    height: 20%;
+    width: 100%;
+
+    display: flex;
     align-items: center;
+    justify-content: center;
 }

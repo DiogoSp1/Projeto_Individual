@@ -25,16 +25,16 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var cpf = req.body.cpfServer;
+    var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    if (cpf == undefined) {
-        res.status(400).send("Seu cpf está undefined!");
+    if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
         
-        usuarioModel.entrar(cpf, senha)
+        usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -44,7 +44,7 @@ function entrar(req, res) {
                         console.log(resultado);
                         res.json(resultado[0]);
                     } else if (resultado.length == 0) {
-                        res.status(403).send("cpf e/ou senha inválido(s)");
+                        res.status(403).send("email e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
@@ -63,11 +63,11 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
-    var dataNasc = req.body.dataNascServer;
-    var cpf = req.body.cpfServer;
+    var usuario = req.body.usuarioServer;
+    var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var mugFav = req.body.mugFavServer;
-    var desc = req.body.descricaoServer;
+    var imagemPerfil = req.body.imagemPerfilServer;
 
 
 
@@ -75,14 +75,14 @@ function cadastrar(req, res) {
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (dataNasc == undefined) {
-        res.status(400).send("Seu dataNasc está undefined!");
+    } else if (usuario == undefined) {
+        res.status(400).send("Seu usuario está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, dataNasc, cpf, senha, mugFav, desc)
+        usuarioModel.cadastrar(nome, usuario, email, senha, mugFav, imagemPerfil)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -102,8 +102,8 @@
             </div>
             <div id="conteudo_Login">
                 <div class="alinhamento_Lados alinhamento_Login">
-                    <label id="especamento_Cpf" >CPF: </label>
-                    <input type="text" id="input_Cpf_Login">
+                    <label id="especamento_email" >email: </label>
+                    <input type="text" id="input_email_Login">
                 </div>
                 <div id="senha" class="alinhamento_Lados alinhamento_Login">
                     <label class="especamento_Senha">Senha: </label>
@@ -127,14 +127,14 @@
 
     function entrar() {
 
-        var cpfVar = input_Cpf_Login.value;
+        var emailVar = input_email_Login.value;
         var senhaVar = input_Senha.value;
 
-        if (cpfVar == "" || senhaVar == "") {
+        if (emailVar == "" || senhaVar == "") {
             return false;
         }
 
-        console.log("FORM LOGIN: ", cpfVar);
+        console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
         fetch("/usuarios/autenticar", {
@@ -143,7 +143,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                cpfServer: cpfVar,
+                emailServer: emailVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
@@ -156,12 +156,15 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.CPF_USUARIO = json.cpf;
-                    sessionStorage.NOME_USUARIO = json.nome_Usuario;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME = json.nome_Usuario;
+                    sessionStorage.APELIDO = json.apelido;
                     sessionStorage.ID_USUARIO = json.id_Usuario;
+                    sessionStorage.IMAGEMPERFIL = json.url_Img;
+                    sessionStorage.MUGIWARA = json.fk_Mug;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -169,6 +172,8 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
+
+                alert('Email ou senha incorreto(a)')
 
                 resposta.text().then(texto => {
                     console.error(texto);

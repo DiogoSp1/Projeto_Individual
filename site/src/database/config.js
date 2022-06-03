@@ -21,11 +21,11 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     database: "projeto_Individual",
-    user: "aluno",
-    password: "sptech",
+    user: "root",
+    password: "140910Cl",
 };
 
-function executar(instrucao, instrucao2) {
+function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
@@ -46,7 +46,7 @@ function executar(instrucao, instrucao2) {
         return new Promise(function (resolve, reject) {
             var conexao = mysql.createConnection(mySqlConfig);
             conexao.connect();
-            conexao.query(instrucao, instrucao2, function (erro, resultados) {
+            conexao.query(instrucao, function (erro, resultados) {
                 conexao.end();
                 if (erro) {
                     reject(erro);

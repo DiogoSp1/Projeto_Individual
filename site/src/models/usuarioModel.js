@@ -9,27 +9,26 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function entrar(cpf, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", cpf, senha)
+function entrar(email, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM usuario WHERE cpf = '${cpf}' AND senha = '${senha}';
+        SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
-    var instrucao2 = ""
-    console.log("Executando a instrução SQL: \n" + instrucao, instrucao2);
-    return database.executar(instrucao, instrucao2);
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, dataNasc, cpf, senha, mugFav, desc ) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, dataNasc, cpf, senha, mugFav, desc);
+function cadastrar(nome, usuario, email, senha, mugFav, imagemPerfil ) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, usuario, email, senha, mugFav, imagemPerfil);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `INSERT INTO usuario (nome_Usuario, data_Nasc, cpf, senha, descricao) VALUES ('${nome}', '${dataNasc}', '${cpf}', '${senha}', '${desc}');` 
-    var instrucao2 = `INSERT INTO mugiwara_Favorito (fk_Mug) VALUES (${mugFav});`
+    var instrucao = `INSERT INTO usuario (nome_Usuario, apelido, email, senha, url_Img, fk_Mug) VALUES ('${nome}', '${usuario}', '${email}', '${senha}', '${imagemPerfil}', ${mugFav});` 
 
-    console.log("Executando a instrução SQL: \n" + instrucao, instrucao2);
-    return database.executar(instrucao, instrucao2);
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
 }
 
 module.exports = {
