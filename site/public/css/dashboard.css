@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'titulo resultado';
+    src: url('../imagens/titulo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body, div, a, section {
     padding: 0;
     margin: 0;
@@ -76,7 +84,7 @@ body, div, a, section {
 
 /* Perfil */
 
-#div_Perfil, #div_Batalha, #antes_Batalha {
+#div_Perfil, #div_Batalha, #antes_Batalha, #depois_Batalha, #div_Rank {
     width: 95%;
     height: 98%;
     display: flex;
@@ -163,7 +171,7 @@ body, div, a, section {
     cursor: pointer;
 }
 
-#div_Batalha, #antes_Batalha {
+#div_Batalha, #antes_Batalha, #depois_Batalha, #div_Rank {
     display: none;
 }
 
@@ -208,6 +216,7 @@ body, div, a, section {
     border-radius: 8px;
 }
 
+
 #div_Contra {
     height: 100%;
     width: 10%;
@@ -226,7 +235,6 @@ body, div, a, section {
     width: 14%;
     cursor: pointer;
 }
-
 
 
 
@@ -292,6 +300,10 @@ body, div, a, section {
 #div_Icone_Personagem, #div_Icone_Personagem2 {
     height: 100%;
     width: 28%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_Barra_Vida1{
@@ -335,7 +347,7 @@ body, div, a, section {
 #div_Personagens {
     height: 65%;
     width: 100%;
-
+    
     display: flex;
     justify-content: space-around;
     background-size: cover;
@@ -346,28 +358,232 @@ body, div, a, section {
     width: 45%;
 }
 
+#div_Personagem2 {
+    display: flex;
+    justify-content: flex-end;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#div_Bater, #relatorio_Ataque, #ataque_Hit1, #ataque_Hit2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 #div_Bater {
     height: 20%;
     width: 100%;
+}
 
+#relatorio_Ataque {
+    height: 100%;
+    width: 10%;
+}
+
+#ataque_Hit1, #ataque_Hit2 {
+    height: 10%;
+    width: 50%;
+    font-family: 'one piece', sans-serif;
+    font-size: 30px;
+    color: orangered;
+
+    transition: 1.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pós batalha */
+
+
+#div_Quadro_Pos_Batalha, #div_Quadro_Rank {
+    height: 60%;
+    width: 50%;
+
+    background-image: url('https://i.pinimg.com/originals/fd/61/52/fd615280c6709a7f75759d10c1c4fd55.png');
+    background-size: cover;
+    padding: 2%;
+    border-radius: 18px;
+    box-shadow: 0px 4px 16px 6px white;
+}
+
+#div_Informacoes_Personagem1, #div_Informacoes_Personagem2, #div_Conteudo_Pos_Batalha, #div_Buttons_Pos_Batalha, #div_Resultado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_Resultado {
+    height: 20%;
+    width: 100%;
+
+    font-family: 'titulo resultado';
+    font-size: 60px;
+    color: white;
+
+    align-items: flex-end;
+}
+
+#div_Conteudo_Pos_Batalha {
+    height: 65%;
+    width: 100%;
+}
+
+#div_Informacoes_Personagem1, #div_Informacoes_Personagem2{
+    height: 90%;
+    width: 49.8%;
+    flex-direction: column;
+    justify-content: space-around;
+
+    font-family: 'one piece';
+    font-size: 30px;
+    color: white;
+}
+
+#div_Buttons_Pos_Batalha .btn {
+    height: 60%;
+    width: 20%;
+
+    border-color: white;
+    color: white;
+}
+
+#div_Buttons_Pos_Batalha .btn:hover {
+    width: 23%;
+}
+
+#div_Informacoes_Personagem1 {
+    border-right: 2px solid white;
+}
+
+#div_Buttons_Pos_Batalha {
+    height: 15%;
+    width: 100%;
+    
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Rank */
+
+#div_Quadro_Rank {
+    height: 80%;
+    width: 70%;
+    background-image: url('https://i0.wp.com/images6.alphacoders.com/659/thumb-1920-659064.png');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_Conteudo_Rank {
+    height: 100%;
+    width: 70%;
+
+
+
+    border-radius: 20px;
+    background-color: #313235;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 16px 6px black;
+}
+
+
+#div_Links_Rank, .div_Links, #div_Recompensa, #rank_Recompensa, .div_Link_Rank, .div_Link_Conteudo, #rank_Conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+#div_Links_Rank {
+    height: 10%;
+    width: 99.45%;
+    
+    background-image: linear-gradient( to bottom, #7a7a7a , white, #bbbbbb );
+    
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.div_Links {
+    font-family: 'one piece';
+    font-size: 25px;
+    cursor: pointer;
+    color: black;
+}
+
+#div_Recompensa{
+    height: 90%;
+    width: 90%;
+    
+    flex-direction: column;
+}
+
+#rank_Recompensa {
+    height: 10%;
+    width: 90%;
+    
+    flex-direction: row;
+    font-family: 'one piece';
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+#rank_Conteudo {
+    height: 90%;
+    width: 90%;
+    
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.div_Link_Rank {
+    height: 100%;
+    width: 30%;
+    
+    border-bottom: 2px solid white;
+}
+
+.div_Link_Conteudo {
+    height: 90%;
+    width: 30%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#div_Rank_Posicao, #div_Conteudo_Posicao {
+    width: 20%;
+}
+
+.div_Link_Conteudo div{
+    height: 10%;
+    
+    
     display: flex;
     align-items: center;
     justify-content: center;

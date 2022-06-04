@@ -5,21 +5,27 @@ function ajustar_Perfil(){
     document.getElementById('img_De_Perfil').style.backgroundSize = 'cover';
     
     nome_Perfil.innerHTML = sessionStorage.APELIDO
+    var recompensa = Number(sessionStorage.RECOMPENSA).toFixed(2)
     document.getElementById('nome_Perfil').style.fontFamily = 'one piece';
 
     div_Conteudo_Batalhar.innerHTML = `
-        Você está com uma recompensa de US$${2.000}<br>
+        Você está com uma recompensa de US$${recompensa}<br>
         Para almenta-la, ganhe algumas batalhas.<br>
         Mas será que conseguirá?
         `
+    valor_Perfil.innerHTML = `
+    US$${recompensa}
+    `
 
     document.getElementById('div_Conteudo_Batalhar').style.fontFamily = 'one piece';
 }
 
 function voltar_Perfil() {
-    document.getElementById('div_Perfil').style.display = 'block';
 
-    document.getElementById('antes_Batalha').style.display = 'none';
+    setTimeout(function () {
+        document.location.reload(true);;
+        }, 1000);
+
     
     arrumar_Perfil()
 }

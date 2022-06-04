@@ -1,5 +1,8 @@
 function escolher_Contra(){
     document.getElementById('div_Perfil').style.display = 'none';
+    document.getElementById('div_Rank').style.display = 'none';
+    document.getElementById('div_Batalha').style.display = 'none';
+    document.getElementById('depois_Batalha').style.display = 'none';
 
     document.getElementById('antes_Batalha').style.display = 'block';
 
@@ -8,7 +11,7 @@ function escolher_Contra(){
     "https://i1.sndcdn.com/artworks-BCswSeycLsqFOZfy-GQIusQ-t500x500.jpg",
     "https://pbs.twimg.com/profile_images/1445787305185320962/xpVa13mT_400x400.jpg",
     "https://i.pinimg.com/736x/fe/a1/03/fea1033ccd44770a200f3a278553977d.jpg",
-    "http://pm1.narvii.com/6358/2af51c17453d4f86ac7c105b62cc85afed696758_00.jpg",
+    "https://i.pinimg.com/originals/5c/b7/43/5cb743aabbaded8dbc201d4e2f0c1f92.jpg",
     "https://i.pinimg.com/736x/a3/b7/54/a3b7549fd1c7b84ee7bd70330163752f.jpg",
     "https://i.pinimg.com/originals/0b/cb/d9/0bcbd98478d5e08e66aeb88c8a7ff1c4.jpg",
     "https://i.pinimg.com/564x/03/5b/40/035b40228c942eb12eaa649460d9ffe5.jpg",
@@ -29,16 +32,16 @@ function escolher_Contra(){
     ]
 
     var poder_Personagens = [
-        "5",
+        "10",
+        "9",
+        "9",
         "4",
-        "4",
-        "2",
-        "1",
         "3",
-        "3",
-        "3",
-        "3",
-        "4"
+        "6",
+        "6",
+        "7",
+        "7",
+        "8"
     ]
 
     var vida_Personagens = [
@@ -68,7 +71,7 @@ function escolher_Contra(){
     ]
 
     var gif_Personagens = [
-        "https://thumbs.gfycat.com/UnfinishedUnselfishAsianpiedstarling-size_restricted.gif",
+        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/eaea9a95-2614-4b2a-ab10-580f594097f7/d5fwb6m-9f9381c7-f6d3-4168-8b75-29ffbf8313d1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VhZWE5YTk1LTI2MTQtNGIyYS1hYjEwLTU4MGY1OTQwOTdmN1wvZDVmd2I2bS05ZjkzODFjNy1mNmQzLTQxNjgtOGI3NS0yOWZmYmY4MzEzZDEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IRNZn-StYyX8gSMmd8dteLZ2KyKHVyFIdXO7A-J0Bf0",
         "https://phoneky.co.uk/thumbs/screensavers/down/technology/zoro_eps7cx1p.gif",
         "http://pa1.narvii.com/6833/39ca74618bd0841207ec6e21dab9d01c74d3c30a_00.gif",
         "imagens/chopper.png",
@@ -112,6 +115,7 @@ function escolher_Contra(){
                 'gif' : gif_Personagens[contagem - 1],
                 'receber' : ganho_Personagens[contagem - 1]
             } 
+            sessionStorage.ADVERSARIO = contagem
         }
     }
     
@@ -146,36 +150,219 @@ function escolher_Contra(){
     document.getElementById("antes_Batalha").style.justifyContent = "space-evenly";
     document.getElementById("antes_Batalha").style.alignItems = "center";
 
-    sessionStorage.JOGADOR1 = jg1.gif;
-    sessionStorage.JOGADOR2 = jg2.gif;
+    sessionStorage.ICONE1 = jg1.img
+    sessionStorage.ICONE2 = jg2.img
+
+    sessionStorage.PERS1 = jg1.nome
+    sessionStorage.PERS2 = jg2.nome
+
+    sessionStorage.PODER1 = jg1.poder
+    sessionStorage.PODER2 = jg2.poder
+
+    sessionStorage.VIDA1 = jg1.vida
+    sessionStorage.VIDA2 = jg2.vida
+    
+    sessionStorage.GIF1 = jg1.gif
+    sessionStorage.GIF2 = jg2.gif
+
+    sessionStorage.PREMIO = jg2.receber
+
 }
+
+
+function lutar(){
+    document.getElementById('antes_Batalha').style.display = 'none';
+    
+    document.getElementById('div_Batalha').style.display = 'block';
+    document.getElementById('section_Dash').style.backgroundImage = "url('https://img.elo7.com.br/product/zoom/2305797/papel-de-parede-vinilico-tijolinho-comics-5604-rosa-branco-papel-para-crianca.jpg')"
+
+    var icone1 =  sessionStorage.ICONE1
+    var icone2 =  sessionStorage.ICONE2
+
+    var pers1 =  sessionStorage.PERS1
+    var pers2 =  sessionStorage.PERS2
+
+    var poder1 =  sessionStorage.PODER1
+    var poder2 =  sessionStorage.PODER2
+
+    var vida1 =  sessionStorage.VIDA1
+    var vida2 =  sessionStorage.VIDA2
+
+    var gif1 = sessionStorage.GIF1
+    var gif2 = sessionStorage.GIF2
+
+
+    
+    
+    div_Icone_Personagem.innerHTML = `<img src = '${icone1}' id = 'icone_Batalha1'></img>`
+    document.getElementById("icone_Batalha1").style.height = "100%";
+    document.getElementById("icone_Batalha1").style.borderRadius = "10px";
+    document.getElementById("icone_Batalha1").style.boxShadow = '0 8px 20px 5px black'
+
+
+    div_Personagem1.innerHTML = `<img src = '${gif1}' id = 'gif_jg1'></img>`
+
+    if(pers1 == 'Nami' || pers1 == 'Robin'){
+        document.getElementById("gif_jg1").style.transform = "scaleX(-1)";
+    }
+
+    document.getElementById("gif_jg1").style.height = "100%";
+
+
+    
+    div_Icone_Personagem2.innerHTML = `<img src = '${icone2}' id = 'icone_Batalha2'></img>`
+    document.getElementById("icone_Batalha2").style.height = "100%";
+    document.getElementById("icone_Batalha2").style.borderRadius = "10px";
+    document.getElementById("icone_Batalha2").style.boxShadow = '0 8px 20px 5px black'
+
+    div_Personagem2.innerHTML = `<img src = '${gif2}' id = 'gif_jg2'></img>`
+
+    if(!(pers1 == 'Nami') || !(pers1 == 'Robin')){
+        document.getElementById("gif_jg2").style.transform = "scaleX(-1)";
+    }
+
+    document.getElementById("gif_jg2").style.height = "100%";
+
+    progressbar = document.querySelector('.div_Barra_Vida1');
+    progressbar.style.setProperty('--progress', vida1)
+
+    progressbar = document.querySelector('.div_Barra_Vida2');
+    progressbar.style.setProperty('--progress2', vida2)
+
+
+}
+
 
 var valor = 100
 var valor2 = 100
 
+
+var rodadas = 0
+var acerto1 = 0
+var acerto2 = 0
+var erro1 = 0
+var erro2 = 0
+
+
+var pers1 = 0
+var pers2 = 0
+
+var poder1 = 0
+var poder2 = 0
+
+var vida1 = 0
+var vida2 = 0
+
 function bater(){
-    valor -= 10
-    valor2 -= 7
-    progressbar = document.querySelector('.div_Barra_Vida1');
-    progressbar.style.setProperty('--progress', valor)
+
+    if(rodadas == 0){
+        pers1 =  sessionStorage.PERS1
+        pers2 =  sessionStorage.PERS2
+    
+        poder1 =  Number(sessionStorage.PODER1)
+        poder2 =  Number(sessionStorage.PODER2)
+    
+        vida1 =  Number(sessionStorage.VIDA1)
+        vida2 =  Number(sessionStorage.VIDA2)
+    }
+
+    rodadas ++
+
+    var atq1 =  Math.floor(Math.random() * 10)
+    var atq2 =  Math.floor(Math.random() * 10)
+    console.log(atq1 , atq2)
+
+    ataque_Hit2.innerHTML = `-${poder1}`
 
     progressbar = document.querySelector('.div_Barra_Vida2');
-    progressbar.style.setProperty('--progress2', valor2)
+    if(atq1 == 10) {
+        vida2 -= poder1 * 2
+        document.getElementById("ataque_Hit2").style.color = "Red"
+        document.getElementById("ataque_Hit2").style.fontSize = "80px"
+        ataque_Hit2.innerHTML = `Critical Hit <br>-${poder1 * 2}`
+        acerto1 ++
+    } else if(atq1 >= 5) {
+        vida2 -= poder1
+        acerto1 ++
+    } else {
+        ataque_Hit2.innerHTML = 'Errou'
+        erro1 ++
+    }
+
+    progressbar.style.setProperty('--progress2', vida2)
+
+
+    document.getElementById("ataque_Hit1").style.marginTop = "-100%";
+    document.getElementById("ataque_Hit1").style.marginLeft = "-50%";
+    document.getElementById("ataque_Hit2").style.color = "transparent";
+
+
+
+    ataque_Hit1.innerHTML = `-${poder2}`
+    progressbar = document.querySelector('.div_Barra_Vida1');
+    
+    if(atq2 == 10) {
+        vida1 -= poder2 * 2
+        document.getElementById("ataque_Hit1").style.color = "Red";
+        document.getElementById("ataque_Hit1").style.fontSize = "80px";
+        ataque_Hit1.innerHTML = `Critical Hit <br>- ${poder2 * 2}`
+        acerto2 ++
+    } else if(atq2 >= 5) {
+        vida1 -= poder2
+        acerto2 ++
+    } else {
+        ataque_Hit1.innerHTML = 'Errou'
+        erro2 ++
+    }
+    progressbar.style.setProperty('--progress', vida1)
+
+    document.getElementById("ataque_Hit2").style.marginTop = "-100%";
+    document.getElementById("ataque_Hit2").style.marginLeft = "240%";
+    document.getElementById("ataque_Hit1").style.color = "transparent";
+
+    setTimeout(function(){
+        ataque_Hit1.innerHTML = ''
+        ataque_Hit2.innerHTML = ''
+    
+        for (cont = 1; cont <= 2; cont++){
+            var div_Rest = `ataque_Hit${cont}`
+            document.getElementById(div_Rest).style.marginTop = "0";
+            document.getElementById(div_Rest).style.marginLeft = "0";
+            document.getElementById(div_Rest).style.color = "orangered";
+            document.getElementById(div_Rest).style.fontSize = "30px";
+        }
+    },1000)
+
+    if (vida1 <= 0 && vida2 <= 0){
+        aparecer_Pos_Batalha("Empate", pers1, pers2, acerto1, acerto2, erro1, erro2)
+    } else if (vida2 <= 0){
+        aparecer_Pos_Batalha("Vitória", pers1, pers2, acerto1, acerto2, erro1, erro2)
+    } else if (vida1 <= 0){
+        aparecer_Pos_Batalha("Derrota", pers1, pers2, acerto1, acerto2, erro1, erro2)
+    }
 }
 
-function lutar(){
-    document.getElementById('antes_Batalha').style.display = 'none';
+function aparecer_Pos_Batalha(resultado, pers1, pers2, acerto1, acerto2, erro1, erro2) {
+    rodadas = 0
 
-    document.getElementById('div_Batalha').style.display = 'block';
-    document.getElementById('section_Dash').style.backgroundImage = "url('https://static.vecteezy.com/ti/vetor-gratis/p1/3726537-versus-vs-luta-batalha-vermelho-e-laranja-fundo-design-de-tela-gr%C3%A1tis-vetor.jpg')"
+    document.getElementById('div_Batalha').style.display = 'none';
+    document.getElementById('depois_Batalha').style.display = 'block';
 
-    var gifzada = sessionStorage.JOGADOR1
-    var gifzada2 = sessionStorage.JOGADOR2
+    document.getElementById("depois_Batalha").style.display = "flex";
+    document.getElementById("depois_Batalha").style.justifyContent = "center";
+    document.getElementById("depois_Batalha").style.alignItems = "center";
 
-    div_Personagem1.innerHTML = `<img src = '${gifzada}' id = 'gif_jg1'></img>`
-    document.getElementById("gif_jg1").style.height = "100%";
+    div_Resultado.innerHTML = resultado
 
-    div_Personagem2.innerHTML = `<img src = '${gifzada2}' id = 'gif_jg2'></img>`
-    document.getElementById("gif_jg2").style.height = "100%";
-    document.getElementById("gif_jg2").style.transform = "scaleX(-1)";
+    div_Nome1.innerHTML = `Nome: ${sessionStorage.APELIDO}`
+    div_Nome2.innerHTML = `Nome: Bot`
+
+    div_Pers1.innerHTML = `Personagem: ${pers1}`
+    div_Pers2.innerHTML = `Personagem: ${pers2}`
+
+    div_Qtd_Rodadas_Acertadas1.innerHTML = `Acertos: ${acerto1}`
+    div_Qtd_Rodadas_Acertadas2.innerHTML = `Acertos: ${acerto2}`
+
+    div_Qtd_Rodadas_Erradas1.innerHTML = `Erros: ${erro1}`
+    div_Qtd_Rodadas_Erradas2.innerHTML = `Erros: ${erro2}`
 }

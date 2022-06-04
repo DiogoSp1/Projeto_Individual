@@ -11,8 +11,8 @@
 </head>
 <script src="js/dash.js"></script>
 <script src="js/batalha.js"></script>
-<body onload="ajustar_Perfil()">
-
+<script src="js/rank.js"></script>
+<body onload="pegar_Recompensa(), ajustar_Perfil()">
     <section id="section_Dash">
         <div id="menu">
             <div id="div_Buttons">
@@ -20,7 +20,7 @@
                     <a href="" class="a_Tamanho"><img src="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-Clip-Art-Transparent-File.png" alt="" class="img_Menu"></img></a>
                 </div>
                 <div class="tamanho_Img">
-                    <a href="" class="a_Tamanho"><img src="https://cdn-icons-png.flaticon.com/512/1041/1041158.png" alt="" class="img_Menu"></a>
+                    <a onclick="abrir_Rank('ORDER BY Recompensa desc')" class="a_Tamanho"><img src="https://cdn-icons-png.flaticon.com/512/1041/1041158.png" alt="" class="img_Menu"></a>
                 </div>
                 <div class="tamanho_Img">
                     <a onclick="escolher_Contra()" class="a_Tamanho"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Small_battle_symbol.svg/1200px-Small_battle_symbol.svg.png" alt="" class="img_Menu"></a>
@@ -38,8 +38,8 @@
             </div>
             <div id="div_Quadro_Perfil">
                 <div id="img_De_Perfil"></div>
-                <div id="nome_Perfil" class="conteudo_Perfil">Dhg.up</div>
-                <div id="valor_Perfil" class="conteudo_Perfil">US$5.500.000</div>
+                <div id="nome_Perfil" class="conteudo_Perfil"></div>
+                <div id="valor_Perfil" class="conteudo_Perfil"></div>
             </div>
         </div>
 
@@ -73,14 +73,149 @@
 
             <div id="div_Personagens">
                 <div id="div_Personagem1"></div>
+                <div id="relatorio_Ataque">
+                    <div id="ataque_Hit1"></div>
+                    <div id="ataque_Hit2"></div>
+                </div>
                 <div id="div_Personagem2"></div>
             </div>
 
             <div id="div_Bater">
-                <button onclick="bater()" class="btn" id="btn_Bater">Bater</button>
+                <button onclick="bater()" class="btn" id="btn_Bater">Atacar</button>
+            </div>
+
+            
+        </div>
+
+        <div id="depois_Batalha">
+            <div id="div_Quadro_Pos_Batalha">
+                <div id="div_Resultado">Empate</div>
+                <div id="div_Conteudo_Pos_Batalha">
+                    <div id="div_Informacoes_Personagem1">
+                        <div id="div_Nome1">Nome: </div>
+                        <div id="div_Pers1"> Personagem: </div>
+                        <div id="div_Qtd_Rodadas_Acertadas1">Acertos: </div>
+                        <div id="div_Qtd_Rodadas_Erradas1">Erros: </div>
+                    </div>
+                    <div id="div_Informacoes_Personagem2">
+                        <div id="div_Nome2">Nome: </div>
+                        <div id="div_Pers2"> Personagem: </div>
+                        <div id="div_Qtd_Rodadas_Acertadas2">Acertos: </div>
+                        <div id="div_Qtd_Rodadas_Erradas2">Erros: </div>
+                    </div>
+                </div>
+                <div id="div_Buttons_Pos_Batalha">
+                    <button class="btn" onclick = "arrumar_Perfil()">Sair</button>
+                    <button class="btn" onclick = "gravar()">Gravar</button>
+                </div>
             </div>
         </div>
+
+        <div id="div_Rank">
+            <div id="div_Quadro_Rank">
+                <div id="div_Conteudo_Rank">
+                    <div id="div_Links_Rank">
+                        <div class="div_Links" onclick="abrir_Rank('ORDER BY Recompensa desc')">Recompensa</div>
+                        <div class="div_Links" onclick="abrir_Rank('ORDER BY Batalhas desc')">Batalhas</div>
+                        <div class="div_Links" onclick="abrir_Rank_Vitoria(1,true)">% Vitórias</div>
+                    </div>
+                    <div id="div_Recompensa">
+                        <div id="rank_Recompensa">
+                            <div id="div_Rank_Posicao" class="div_Link_Rank">Posição</div>
+                            <div id="div_Rank_Nome" class="div_Link_Rank">Nome</div>
+                            <div id="div_Rank_Recompensa" class="div_Link_Rank">Recompensa</div>
+                        </div>
+                        <div id="rank_Conteudo">
+                            <div id="div_Conteudo_Posicao" class="div_Link_Conteudo">
+                                <div id="div_Conteudo_Posicao1"></div>
+                                <div id="div_Conteudo_Posicao2"></div>
+                                <div id="div_Conteudo_Posicao3"></div>
+                                <div id="div_Conteudo_Posicao4"></div>
+                                <div id="div_Conteudo_Posicao5"></div>
+                                <div id="div_Conteudo_Posicao6"></div>
+                                <div id="div_Conteudo_Posicao7"></div>
+                                <div id="div_Conteudo_Posicao8"></div>
+                                <div id="div_Conteudo_Posicao9"></div>
+                                <div id="div_Conteudo_Posicao10"></div>
+                            </div>
+                            <div id="div_Conteudo_Nome" class="div_Link_Conteudo">
+                                <div id="div_Conteudo_Nome1"></div>
+                                <div id="div_Conteudo_Nome2"></div>
+                                <div id="div_Conteudo_Nome3"></div>
+                                <div id="div_Conteudo_Nome4"></div>
+                                <div id="div_Conteudo_Nome5"></div>
+                                <div id="div_Conteudo_Nome6"></div>
+                                <div id="div_Conteudo_Nome7"></div>
+                                <div id="div_Conteudo_Nome8"></div>
+                                <div id="div_Conteudo_Nome9"></div>
+                                <div id="div_Conteudo_Nome10"></div>
+                            </div>
+                            <div id="div_Conteudo_Recompensa" class="div_Link_Conteudo">
+                                <div id="div_Conteudo_Recompensa1"></div>
+                                <div id="div_Conteudo_Recompensa2"></div>
+                                <div id="div_Conteudo_Recompensa3"></div>
+                                <div id="div_Conteudo_Recompensa4"></div>
+                                <div id="div_Conteudo_Recompensa5"></div>
+                                <div id="div_Conteudo_Recompensa6"></div>
+                                <div id="div_Conteudo_Recompensa7"></div>
+                                <div id="div_Conteudo_Recompensa8"></div>
+                                <div id="div_Conteudo_Recompensa9"></div>
+                                <div id="div_Conteudo_Recompensa10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     
 </body>
 </html>
+
+<script>
+    function gravar(){
+        var usuarioVar = sessionStorage.ID_USUARIO
+        var resultadoVar = div_Resultado.innerHTML
+        var adversarioVar = sessionStorage.ADVERSARIO
+        var ganhosVar = sessionStorage.PREMIO
+
+        if(resultadoVar == 'Derrota'){
+            ganhosVar = 0
+        } else if (resultadoVar == 'Empate'){
+            ganhosVar = ganhosVar / 2
+        }
+        fetch("/usuarios/gravar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                usuarioServer: usuarioVar,
+                resultadoServer: resultadoVar,
+                adversarioServer: adversarioVar,
+                ganhosServer: ganhosVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {;
+                pegar_Recompensa()
+
+                setTimeout(function () {
+                    document.location.reload(true);;
+                    }, 1000);
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+</script>

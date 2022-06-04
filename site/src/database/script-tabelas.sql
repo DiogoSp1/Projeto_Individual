@@ -21,22 +21,14 @@ CREATE TABLE usuario (
     url_Img VARCHAR(5000)
 );
 
-CREATE TABLE mural (
-	id_Mural INT PRIMARY KEY AUTO_INCREMENT,
-    fk_Usuario INT NOT NULL,
-    nome_mural VARCHAR (50) NOT NULL,
-    conteudo VARCHAR (1000) NOT NULL,
-    FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario)
-);
-
 INSERT INTO mugiwara (nome_Mug) VALUES
 ('Luffy'),
 ('Roronoa Zoro'),
 ('Sanji'),
 ('Chopper'),
+('Usopp'),
 ('Nami'),
 ('Nico Robin'),
-('Usopp'),
 ('Franky'),
 ('Brook'),
 ('Jinbei');
@@ -44,13 +36,16 @@ INSERT INTO mugiwara (nome_Mug) VALUES
 CREATE TABLE batalha (
     id_Batalha INT PRIMARY KEY AUTO_INCREMENT,
     fk_Usuario INT NOT NULL,
-    resultado VARCHAR(6),
-    CHECK(resultado = 'Venceu' AND resultado = 'Perdeu'),
-    fk_Mug INT NOT NULL,
+    resultado VARCHAR(7),
+    adversario INT NOT NULL,
+    ganhos DOUBLE,
     FOREIGN KEY (fk_Usuario) REFERENCES usuario(id_Usuario),
-    FOREIGN KEY (fk_Mug) REFERENCES mugiwara(id_Mug)
+    FOREIGN KEY (adversario) REFERENCES mugiwara(id_Mug)
 );
 
+
+select * from usuario;
+select * from batalha;
 
 
 /* para sql server - remoto - produção */
