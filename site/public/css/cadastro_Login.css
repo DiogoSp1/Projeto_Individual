@@ -44,6 +44,9 @@
     align-items: center;
 }
 
+#container_Login a{
+    color:rgb(37, 37, 107);
+}
 
 .lados_Cad {
     height: 100%;

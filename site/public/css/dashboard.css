@@ -12,6 +12,9 @@
     font-style: normal;
 }
 
+button {
+    cursor: pointer;
+}
 
 body, div, a, section {
     padding: 0;

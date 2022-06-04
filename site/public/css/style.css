@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'one piece';
+  src: url('../imagens/fontOnePiece.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body,section,div,head {
   padding: 0%;
   margin: 0%;
@@ -71,13 +78,12 @@ a {
   transition: 0.5s;
 }
 #div_Nav_Links {
-  width: 50%;
-  
-
+  width: 40%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
+
 .div_Texto_Nav {
   font-size: 25px;
 
@@ -234,4 +240,93 @@ a {
 .btn_Carousel:hover {
   font-size: 100px;
   cursor: pointer;
+}
+
+
+
+
+
+
+/* Informações */
+
+
+
+
+#section_Jogo {
+  height: 100vh;
+  width: 98.7vw;
+  background-image: url('https://wallpaperaccess.com/full/1188345.png');
+  background-size: cover;
+}
+
+#section_Jogo, #sobre_Jogo, #div_A_Jogo, #sobre_Jogo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#sobre_Jogo {
+  height: 65%;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.664);
+
+  border-radius: 20px;
+  box-shadow: 0 8px 20px 5px red;
+  flex-direction: column;
+}
+
+#sobre_Jogo h1{
+  color: white;
+  font-family: 'one piece';
+  font-size: 40px;
+
+  height: 20%;
+}
+
+#div_Conteudo_Jogo {
+  color: white;
+  font-family: 'one piece';
+  font-size: 25px;
+  height: 50%;
+  text-align: center;
+}
+
+#div_A_Jogo {
+  height: 30%;
+  width: 100%;
+}
+
+#sobre_Jogo a{
+  height: 40%;
+  width: 18%;
+  font-family: 'one piece';
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.589);
+  border-radius: 15px;
+  color: black;
+
+  box-shadow: 0 4px 14px 3px rgba(0, 0, 0, 0.829);
+  transition: 1s;
+  animation-delay: 0.5s;
+  transition-timing-function: ease;
+}
+
+#sobre_Jogo a:hover {
+  width: 20%;
+  transition-timing-function: ease;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+#section_Jogo:checked ~ .scroll{
+  transform: translateY(20%);
+  -webkit-transform: translateY(10%);
+}
+
+#div_Img_Click {
+  height: 15%;
+  width: 15%;
+
+  z-index: 0;
 }
