@@ -141,7 +141,13 @@ body, div, a, section {
     justify-content: center;
 
     font-size: 30px;
+}
 
+#div_Quadro_Batalha h1, #div_Conteudo_Batalhar span {
+    font-family: 'one piece', sans-serif;
+    background: linear-gradient(to bottom, black 20%,#e22929 , black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .btn {

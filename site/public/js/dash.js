@@ -8,9 +8,31 @@ function ajustar_Perfil(){
     var recompensa = Number(sessionStorage.RECOMPENSA).toFixed(2)
     document.getElementById('nome_Perfil').style.fontFamily = 'one piece';
 
+    if(recompensa <= 100000) {
+        var titulo = 'Coadjuvante'
+    } else if (recompensa <= 200000) {
+        var titulo = 'Comum'
+    } else if (recompensa <= 300000) {
+        var titulo = 'Pirata'
+    } else if (recompensa <= 500000) {
+        var titulo = 'Capitão'
+    } else if (recompensa <= 800000) {
+        var titulo = 'Pior Geração'
+    } else if (recompensa <= 1200000) {
+        var titulo = 'Shichibukai'
+    } else if (recompensa <= 1800000) {
+        var titulo = 'Yonkou'
+    } else if (recompensa <= 2500000) {
+        var titulo = 'Comandante Supremo'
+    } else if (recompensa <= 5000000) {
+        var titulo = 'Rei dos Piratas'
+    } 
+    titulo_Perfil.innerHTML = titulo
+
     div_Conteudo_Batalhar.innerHTML = `
-        Você está com uma recompensa de US$${recompensa}<br>
-        Para almenta-la, ganhe algumas batalhas.<br>
+        Você está com uma recompensa de <span>US$${recompensa}</span><br>
+        Para almentar a recompensa e subir seu titulo,
+        ganhe algumas batalhas<br>
         Mas será que conseguirá?
         `
     valor_Perfil.innerHTML = `
