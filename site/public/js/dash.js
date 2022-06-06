@@ -31,7 +31,7 @@ function ajustar_Perfil(){
 
     div_Conteudo_Batalhar.innerHTML = `
         Você está com uma recompensa de <span>US$${recompensa}</span><br>
-        Para almentar a recompensa e subir seu titulo,
+        Para aumentar a recompensa e subir seu titulo,
         ganhe algumas batalhas<br>
         Mas será que conseguirá?
         `
